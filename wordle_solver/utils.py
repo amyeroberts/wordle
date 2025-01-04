@@ -1,5 +1,6 @@
 import string
 import enum
+from typing import Optional
 
 
 class BackgroundColor(str, enum.Enum):
@@ -23,10 +24,16 @@ def format_text(
     return f"\033[{text_colour_code};{background_color_code} {text} \033[0m"
 
 
-def render_guess(guess: str, answer: str, n_guesses: int, n_possibilities: int):
+def render_guess(
+    guess: str,
+    answer: str,
+    n_guesses: int,
+    max_guesses: int,
+    n_possibilities: Optional[int] = None,
+):
     "Colour codes the guess wrt the answer"
     # text_colour = "97" if n_guesses <= 5 else "91"
-    text_color = TextColor.WHITE if n_guesses <= 5 else TextColor.RED
+    text_color = TextColor.WHITE if n_guesses <= max_guesses else TextColor.RED
 
     output = format_text("{} :".format(n_guesses), text_colour_code=text_color)
     matched_indices = set()
@@ -54,7 +61,7 @@ def render_guess(guess: str, answer: str, n_guesses: int, n_possibilities: int):
                 background_color_code=BackgroundColor.GREY,
             )
 
-    output += f" {n_possibilities}"
+    output += f" {n_possibilities}" if n_possibilities is not None else ""
     return output
 
 
