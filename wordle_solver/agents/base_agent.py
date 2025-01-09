@@ -13,5 +13,4 @@ class Agent:
         raise NotImplementedError
 
     def update(self, state, action, reward):
-        # Should this place values for each letter in each position, or across all the words?
         raise NotImplementedError

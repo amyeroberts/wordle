@@ -74,7 +74,6 @@ class Environment:
         Returns a freshly initialised Environment and returns a new
         timestep for the start of a new play session.
         """
-        # self.letters = Letters(word_length=self.letters.word_length)
         self.answer = self._rng.choice(self.words).upper()
         self.n_guesses = 0
 

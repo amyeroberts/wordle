@@ -32,7 +32,6 @@ def render_guess(
     n_possibilities: Optional[int] = None,
 ):
     "Colour codes the guess wrt the answer"
-    # text_colour = "97" if n_guesses <= 5 else "91"
     text_color = TextColor.WHITE if n_guesses <= max_guesses else TextColor.RED
 
     output = format_text("{} :".format(n_guesses), text_colour_code=text_color)

@@ -98,7 +98,6 @@ def run(show, seed_env, seed_agent, n_games, max_guesses, word_length):
                     )
                 break
 
-        # Reset the environment
         environment.reset()
 
 

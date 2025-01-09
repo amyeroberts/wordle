@@ -9,7 +9,6 @@ import numpy as np
 
 from wordle_solver.environment import Environment, StepType, Reward, TimeStep
 
-# from wordle_solver.agents.random_agent import RandomAgent
 from wordle_solver.agents import RandomAgent
 from wordle_solver.utils import render_guess
 
